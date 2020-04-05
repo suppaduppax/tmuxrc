@@ -11,3 +11,8 @@ else
 	echo "Done"
 fi
 
+check=$(apt list --installed tmux)
+if ! grep "installed" <<< "$check"; then
+	echo "tmux not installed... installing"
+	sudo apt install -y tmux
+fi
